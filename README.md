@@ -15,6 +15,9 @@ Having some fun with kubernetes.  A working deployment.
     brew install minikube
     minikube --version
 
+### Quick Start
+    for i in $(ls *.yaml); do kubectl -f apply $i; done
+
 #### K8s commands
 
 ##### start Minikube and check status
