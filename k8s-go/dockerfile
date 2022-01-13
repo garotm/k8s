@@ -1,0 +1,24 @@
+#aimvector/kube-demo:go-v1
+FROM golang:1.9.2-alpine3.7 as builder
+
+# installing git
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+    
+WORKDIR /go
+COPY . .
+
+RUN go get -u github.com/gorilla/mux
+
+RUN go build goapp.go
+
+FROM alpine:3.7
+
+RUN mkdir /app
+COPY --from=builder /go/goapp /app/goapp
+RUN chmod +x /app/goapp
+
+WORKDIR /app
+EXPOSE 80
+
+CMD ["./goapp"]
