@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: demoapp
+        app: goapp
     spec:
       restartPolicy: Always
       dnsPolicy: ClusterFirst
