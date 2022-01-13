@@ -16,8 +16,6 @@ Having some fun with kubernetes.  A working deployment.
     minikube --version
 
 ### Quick Start
-    for i in $(ls *.yaml); do kubectl -f apply $i; done
-
 #### K8s commands
 
 ##### start Minikube and check status
@@ -26,6 +24,10 @@ Having some fun with kubernetes.  A working deployment.
 
 ##### get minikube node's ip address
     minikube ip
+
+##### apply all yaml files within the application directory
+    kubectl apply -f application/
+    minikube service webapp-service
 
 ##### get basic info about k8s components
     kubectl get node
