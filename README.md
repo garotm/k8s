@@ -58,7 +58,7 @@ Having some fun with kubernetes.  A working deployment.
 
 If you can't access the NodePort service webapp with `MinikubeIP:NodePort`, execute the following command:
     
-    minikube service webapp-service
+    minikube service webapp-service --url
 
 <br />
 
