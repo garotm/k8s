@@ -1,0 +1,13 @@
+apiVersion: neteworking.k8s.io/v1beta
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kubernetes-dashboard
+spec:
+  rules:
+  - host: dashboard.com # will need a local hosts entry for this to work if not a 'real' domain name
+    http:
+      paths:
+      - backend: 
+          serviceName: kubernetes-dashboard # only available runningin minikube
+          servicePort: 80
