@@ -1,13 +1,15 @@
-apiVersion: neteworking.k8s.io/v1beta
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: dashboard-ingress
-  namespace: kubernetes-dashboard
+  namespace: ingress-nginx
+  # namespace: kubernetes-dashboard
 spec:
   rules:
   - host: dashboard.com # will need a local hosts entry for this to work if not a 'real' domain name
     http:
       paths:
       - backend: 
-          serviceName: kubernetes-dashboard # only available runningin minikube
+          # serviceName: kubernetes-dashboard # only available running in minikube
+          serviceName: ingress-nginx
           servicePort: 80
